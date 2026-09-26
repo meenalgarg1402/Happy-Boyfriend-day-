@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boyfriend's Day ❤️</title>
+<style>
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#050505}
+body{font-family:"Nunito",sans-serif;color:#fff;display:flex;justify-content:center}
+.phone{width:min(100vw,520px);min-height:100vh;background:#050505;padding-bottom:28px}
+.browser{margin:28px 12px 0;border-radius:5px;overflow:hidden;background:#8f2f18;box-shadow:0 0 0 1px #151515,0 14px 45px #000}
+.browser-top{height:34px;background:#1d3123;color:#dfe8df;display:flex;align-items:center;gap:10px;padding:0 8px;font-size:15px}
+.address{flex:1;background:#315137;border-radius:5px;height:22px;line-height:22px;text-align:center;font-size:9px;color:#d9e5da}
+#app{min-height:calc(100vh - 150px);position:relative;overflow:hidden}
+.caption{text-align:center;font-weight:800;font-size:15px;line-height:1.25;padding:24px 10px 0;color:#fff}
+.screen{min-height:calc(100vh - 184px);padding:28px 18px 34px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:
+radial-gradient(circle at 30% 15%,#c34a2d 0 2px,transparent 3px),
+radial-gradient(circle at 80% 70%,#a83a23 0 2px,transparent 3px),
+linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+linear-gradient(#a73a20,#8e2c17 55%,#7f2716);
+background-size:auto,auto,18px 18px,auto}
+.screen:before{content:"";position:absolute;inset:0;opacity:.13;background:repeating-linear-gradient(0deg,transparent 0 5px,#2d130d 6px);pointer-events:none}
+h1,h2,h3,p{position:relative;z-index:1}
+.title{font-family:"Baloo 2";font-size:30px;line-height:1.02;text-align:center;margin:0 0 18px;text-shadow:2px 3px #4d170f}
+.sub{font-size:13px;text-align:center;opacity:.9}
+.hello{font-size:95px;filter:drop-shadow(0 7px 2px #5a1d14);margin:8px 0}
+.buttons{display:flex;gap:10px;z-index:2;margin-top:8px;flex-wrap:wrap;justify-content:center}
+.btn{border:2px solid #4b1812;border-radius:18px;padding:9px 25px;background:#f8e6db;color:#70271c;font-weight:900;font-size:16px;box-shadow:0 4px 0 #4b1812;cursor:pointer}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #4b1812}
+.btn.red{background:#d84b30;color:#fff}
+.btn.small{padding:8px 15px;font-size:13px}
+.doodle{position:absolute;bottom:12px;font-size:40px;opacity:.9}
+.d1{left:10px}.d2{right:10px}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:350px;z-index:2}
+.choice{background:#f3e4da;color:#6c261b;border-radius:16px;padding:13px;text-align:center;font-weight:900;border:2px solid #642015;box-shadow:0 4px #642015;cursor:pointer}
+.card{width:100%;max-width:390px;background:#f8f0e8;color:#59271d;border:6px solid #f4d4c0;padding:20px;border-radius:5px;box-shadow:0 10px 0 rgba(65,17,10,.3);z-index:2}
+.card h2{font-family:"Baloo 2";font-size:31px;margin:0 0 4px;color:#7b281d}
+.card p{font-size:14px;line-height:1.55}
+.polaroids{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:13px 0}
+.polaroid{width:100px;height:122px;background:#fff;padding:6px 6px 19px;transform:rotate(-3deg);box-shadow:0 4px 10px #4c170f}
+.polaroid:nth-child(2){transform:rotate(4deg)}
+.polaroid .pic{height:92px;background:linear-gradient(135deg,#ef8b78,#f7d2bb);display:grid;place-items:center;font-size:48px}
+.jar{font-size:120px;line-height:1;margin:5px 0}
+.hearts{font-size:28px;letter-spacing:7px}
+.next{margin-top:16px}
+.final .title{font-size:28px}.final p{max-width:350px;text-align:center;font-size:15px;line-height:1.5}
+.heart-big{font-size:80px;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.fade{animation:fade .45s ease}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.note{background:#f8eee4;color:#623125;width:100%;max-width:390px;padding:28px 22px;border:5px solid #e8c7af;position:relative;z-index:2;box-shadow:0 10px 0 rgba(61,15,9,.25)}
+.note:before{content:"♥";position:absolute;right:14px;top:8px;color:#c84a35;font-size:25px}
+.note h2{font-family:"Baloo 2";margin:0;color:#8b3325;font-size:31px}.note p{font-size:14px;line-height:1.65}.signature{font-family:"Baloo 2";font-size:24px;text-align:right;color:#a33c2a}
+.smallline{font-size:11px;text-align:center;margin-top:8px;opacity:.8}
+
+
+/* iPhone / Safari compatibility */
+html{
+  width:100%;
+  min-height:100%;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body{
+  width:100%;
+  min-height:100vh;
+  min-height:100dvh;
+  min-height:-webkit-fill-available;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+button{
+  -webkit-appearance:none;
+  appearance:none;
+  font:inherit;
+  -webkit-user-select:none;
+  user-select:none;
+  touch-action:manipulation;
+}
+.phone{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  min-height:100dvh;
+  min-height:-webkit-fill-available;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+}
+.browser{
+  margin-top:calc(12px + env(safe-area-inset-top));
+}
+#app{
+  min-height:calc(100vh - 150px);
+  min-height:calc(100dvh - 150px);
+}
+.screen{
+  min-height:calc(100vh - 184px);
+  min-height:calc(100dvh - 184px);
+  overflow:hidden;
+  width:100%;
+}
+@supports (-webkit-touch-callout:none){
+  .screen{
+    min-height:calc(100dvh - 184px);
+  }
+}
+
+
+/* FULL iPHONE / SAFARI MODE */
+:root{
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-width:100%;
+  height:100%;
+  min-height:100%;
+  background:#050505;
+  overflow:hidden;
+}
+body{
+  display:block;
+  overscroll-behavior:none;
+  -webkit-overflow-scrolling:auto;
+}
+#app{
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:-webkit-fill-available;
+  overflow:hidden;
+}
+.phone,.browser,.browser-top,.address,.caption{
+  display:none !important;
+}
+.screen{
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:100vh !important;
+  min-height:100dvh !important;
+  padding:
+    calc(22px + var(--safe-top))
+    calc(18px + var(--safe-right))
+    calc(28px + var(--safe-bottom))
+    calc(18px + var(--safe-left));
+  justify-content:center;
+  overflow:hidden;
+}
+.title{
+  font-size:clamp(25px, 7vw, 32px);
+}
+.card,.note{
+  width:100%;
+  max-width:390px;
+  max-height:calc(100dvh - 70px);
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.card::-webkit-scrollbar,.note::-webkit-scrollbar{display:none}
+.choice-grid{
+  width:100%;
+  grid-template-columns:1fr 1fr;
+}
+.choice,.btn{
+  min-height:48px;
+  touch-action:manipulation;
+}
+.buttons{
+  gap:12px;
+}
+.hello{
+  font-size:clamp(75px, 22vw, 95px);
+}
+.jar{
+  font-size:clamp(90px, 30vw, 120px);
+}
+.polaroids{
+  gap:8px;
+}
+.polaroid{
+  flex:0 1 100px;
+}
+@media (max-width:380px){
+  .screen{
+    padding-left:14px;
+    padding-right:14px;
+  }
+  .choice-grid{
+    gap:9px;
+  }
+  .choice{
+    padding:11px 7px;
+    font-size:13px;
+  }
+  .card,.note{
+    padding:17px;
+  }
+}
+@media (orientation:landscape){
+  .screen{
+    padding-top:calc(10px + var(--safe-top));
+    padding-bottom:calc(10px + var(--safe-bottom));
+  }
+  .card,.note{
+    max-height:calc(100dvh - 20px);
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .heart-big,.fade{
+    animation:none !important;
+  }
+}
+
+</style>
+</head>
+<body>
+  <main id="app" aria-live="polite"></main>
+<script>
+
+const app=document.getElementById("app");
+
+const screens=[
+`<section class="screen fade">
+  <h1 class="title">Baby, I made something for you<br>do you wanna see it?</h1>
+  <div class="hello">🐱🎀</div>
+  <div class="buttons"><button type="button" class="btn red" onclick="go(1)">YES</button><button type="button" class="btn" id="no">NO</button></div>
+  <div class="doodle d1">〰︎</div><div class="doodle d2">〰︎</div>
+</section>`,
+`<section class="screen fade">
+  <h1 class="title">Happy Boyfriend's Day! 💌</h1>
+  <p class="sub">I made a tiny little corner of the internet just for you.</p>
+  <div class="card">
+    <div class="hearts">♥ ♥ ♥</div>
+    <h2>Pick one, baby 👀</h2>
+    <div class="choice-grid">
+      <button type="button" class="choice" onclick="go(2)">Why I love you</button>
+      <button type="button" class="choice" onclick="go(3)">A little surprise</button>
+      <button type="button" class="choice" onclick="go(4)">Our memories</button>
+      <button type="button" class="choice" onclick="go(5)">My letter 💌</button>
+    </div>
+  </div>
+</section>`,
+`<section class="screen fade">
+  <div class="card">
+    <h2>Why I love you ❤️</h2>
+    <p>Because you make ordinary days feel special. Your smile, your silly little moments, the way you care, and simply having you in my life mean more than I can explain.</p>
+    <p>You're my favourite person to annoy, laugh with, talk to and love. 🥹</p>
+    <div class="hearts">♡ ♥ ♡ ♥ ♡</div>
+    <button type="button" class="btn red next" onclick="go(1)">Back to surprises</button>
+  </div>
+</section>`,
+`<section class="screen fade">
+  <h1 class="title">A little surprise 🎁</h1>
+  <div class="jar">🫙</div>
+  <div class="hearts">💗 💗 💗 💗</div>
+  <div class="card">
+    <p><b>Open your imaginary jar:</b></p>
+    <p>Inside are unlimited hugs, forehead kisses, random “I miss you” texts, and one very clingy girlfriend. 😭💗</p>
+    <button type="button" class="btn red next" onclick="go(1)">More!</button>
+  </div>
+</section>`,
+`<section class="screen fade">
+  <div class="card">
+    <h2>Our little memories 📸</h2>
+    <div class="polaroids">
+      <div class="polaroid"><div class="pic">🥰</div></div>
+      <div class="polaroid"><div class="pic">🫶</div></div>
+      <div class="polaroid"><div class="pic">💑</div></div>
+    </div>
+    <p>Replace these cute placeholders with your favourite photos together.</p>
+    <button type="button" class="btn red next" onclick="go(1)">Keep going 💗</button>
+  </div>
+</section>`,
+`<section class="screen fade">
+  <div class="note">
+    <h2>To My Love</h2>
+    <p>Happy Boyfriend's Day, baby! 💌</p>
+    <p>Thank you for being there through the good days, the silly days and everything in between. I hope you always remember how loved and appreciated you are.</p>
+    <p>This little website may come to an end, but my love for you never will.</p>
+    <div class="signature">I love you, always. ❤️</div>
+    <button type="button" class="btn red next" onclick="go(6)">One last thing…</button>
+  </div>
+</section>`,
+`<section class="screen final fade">
+  <div class="heart-big">❤️</div>
+  <h1 class="title">Happy Boyfriend's Day!</h1>
+  <p>You're my favourite notification, my safest place and my forever person. 🥹</p>
+  <p><b>Made with all my love, just for you.</b></p>
+  <button type="button" class="btn red" onclick="go(0)">Replay ↻</button>
+</section>`
+];
+
+function go(i){
+  const index = Number(i);
+  if(!Number.isInteger(index) || !screens[index]) return;
+  app.innerHTML = screens[index];
+  window.scrollTo(0,0);
+  if(index === 0) setupNo();
+}
+
+function setupNo(){
+  const no = document.getElementById("no");
+  if(!no) return;
+
+  let moving = false;
+
+  function moveNo(e){
+    if(e){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if(moving) return;
+    moving = true;
+
+    const x = Math.round((Math.random() * 100) - 50);
+    const y = Math.round((Math.random() * 55) - 27);
+
+    no.style.transform = "translate3d(" + x + "px," + y + "px,0)";
+
+    setTimeout(function(){
+      moving = false;
+    }, 120);
+  }
+
+  no.addEventListener("mouseenter", moveNo);
+  no.addEventListener("touchstart", moveNo, {passive:false});
+  no.addEventListener("pointerdown", function(e){
+    if(e.pointerType === "touch" || e.pointerType === "pen") moveNo(e);
+  }, {passive:false});
+}
+
+go(0);
+
+</script>
+</body>
+</html>
